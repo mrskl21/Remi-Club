@@ -62,6 +62,12 @@ $route['game/win_plus']['POST'] = 'dash/c_game/win_plus';
 $route['game/win_minus']['POST'] = 'dash/c_game/win_minus';
 $route['game/point_plus']['POST'] = 'dash/c_game/point_plus';
 $route['game/point_minus']['POST'] = 'dash/c_game/point_minus';
+$route['game/close_round']['POST'] = 'dash/c_game/close_round';
+
+$route['leaderboard'] = 'dash/c_leaderboard';
+
+$route['history'] = 'dash/c_history';
+$route['history/detail/(:num)'] = 'dash/c_history/detail/$1';
 
 
 // end

@@ -18,6 +18,8 @@ class C_home extends CI_Controller {
         $title['parent']    = "Beranda";
         $title['level'][0]  = "Utama";
         $title['href'][0]   = "";
+        $title['level'][1]  = "Beranda";
+        $title['href'][1]   = "";
 		
 		$param['status']	= 1;
 

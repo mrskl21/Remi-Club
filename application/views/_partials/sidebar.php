@@ -17,7 +17,8 @@
         <li class="menu-header">Data</li>
         <li class="<?=($title['parent'] == "Data Pemain")?"active":"";?>"><a class="nav-link" href="<?= base_url();?>data/players"><i class="fas fa-users"></i> <span>Pemain</span></a></li>
         <li class="<?=($title['parent'] == "Data Kas")?"active":"";?>"><a class="nav-link" href="<?= base_url();?>data/cash_register"><i class="fas fa-wallet"></i> <span>Kas</span></a></li>
-        <li class="<?=($title['parent'] == "Redeem")?"active":"";?>"><a class="nav-link" href="<?= base_url();?>data/redeem"><i class="fas fa-gift"></i> <span>Redeem</span></a></li>
+        <li class="<?=($title['parent'] == "Redeem Poin")?"active":"";?>"><a class="nav-link" href="<?= base_url();?>data/redeem"><i class="fas fa-gift"></i> <span>Redeem Poin</span></a></li>
+        <li class="<?=($title['parent'] == "Tebus CU")?"active":"";?>"><a class="nav-link" href="<?= base_url();?>data/debt_payment"><i class="fas fa-gift"></i> <span>Tebus CU</span></a></li>
         
  
 

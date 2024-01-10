@@ -38,6 +38,24 @@ class Table_round_detail extends CI_Model
         return $this->db->get($this->table)->result();
     }
 
+    public function count_score()
+    {
+		$this->db->select('
+			round_detail.players_id,
+			data_players.name as players_name,
+			data_players.photo as players_photo,
+			SUM(round_detail.registration) as registration,
+			SUM(round_detail.debt) as debt,
+			SUM(round_detail.game) as game,
+			SUM(round_detail.win) as win,
+			SUM(round_detail.point) as point
+		');
+		$this->db->join('data_players','data_players.id = round_detail.players_id');
+        $this->db->group_by('round_detail.players_id');
+        $this->db->order_by('point','DESC');
+        return $this->db->get($this->table)->result();
+    }
+
     public function update($id, $data)
     {
         $this->db->where($id);

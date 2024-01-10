@@ -19,9 +19,9 @@
 								<?php if(!$round):?>
 									<div class="card-body">
 										<div class="text-center mb-5">
-											<h1>Oops..</h1>
-											<h5 class="text-muted">Belum ada ronde yang aktif</h5>
-											<img src="<?=base_url();?>assets/img/cards.png" height="200px" alt="">
+											<h1 class="text-primary">Belum ada ronde yang aktif</h1>
+											<h5 class="text-muted">Silahkan buat ronde baru terlebih dahulu</h5>
+											<img src="<?=base_url();?>assets/img/cards.png" height="300px" alt="">
 											<br>
 											<button type="button" class="btn btn-primary btn-lg mt-5" data-toggle="modal" data-target="#modal-add">BUAT RONDE BARU <i class="fas fa-plus pl-2"></i></button type="button">
 										</div>
@@ -30,7 +30,8 @@
 									<div class="card-header">
                                 		<h4>Ronde : <?=date("j M Y H:i",$round->start);?> WITA</h4>
 										<div class="card-header-action">
-											<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-add-player">Tambah Pemain <i class="fas fa-plus"></i></button type="button">
+											<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-add-player">Tambah Pemain <i class="fas fa-plus pl-2"></i></button type="button">
+											<button type="button" class="btn btn-warning" data-toggle="modal" data-target="#modal-close-round">Tutup Ronde <i class="fas fa-lock pl-2"></i></button type="button">
 										</div>
 									</div>
 									<div class="card-body">
@@ -137,6 +138,45 @@
 								</select>
 							</div>
 						</div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+                        <button id="submit" type="submit" name="submit" class="btn btn-primary">Simpan</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+	<div class="modal fade" id="modal-close-round" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Tambah Pemain Baru</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form action="<?=base_url();?>game/close_round" method="POST" enctype="multipart/form-data" class="form">
+					<div class="modal-body">
+						
+						<blockquote>
+						  Apa anda yakin untuk menutup ronde ini ?
+						</blockquote>
+						<div class="form-group">
+							<div class="control-label">Ronde</div>
+							<input type="text" class="form-control" name="round_id" id="round_id" value="<?=$round->id;?>" hidden>
+							<input type="text" class="form-control" name="round" id="round" value="<?=date("j M Y H:i",$round->start);?> WITA" disabled>
+						</div>
+						<div class="form-group">
+							<div class="control-label">Konfirmasi</div>
+							<label class="custom-switch mt-2">
+								<input type="checkbox" name="custom-switch-checkbox" class="custom-switch-input" required>
+								<span class="custom-switch-indicator"></span>
+								<span class="custom-switch-description"><b class="text-primary">YA, TUTUP RONDE</b></span>
+							</label>
+						</div>
+						
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>

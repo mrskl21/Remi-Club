@@ -16,8 +16,10 @@ class C_game extends CI_Controller {
 
         $title['display']   = "Game";
         $title['parent']    = "Game";
-        $title['level'][0]  = "";
+        $title['level'][0]  = "Utama";
         $title['href'][0]   = "";
+        $title['level'][1]  = "Game";
+        $title['href'][1]   = "";
 
 		$round = $this->table_round->active();
 		$players = $this->table_players->all();
@@ -200,6 +202,16 @@ class C_game extends CI_Controller {
         echo json_encode($result);
     }
 
+    public function close_round()
+    {
+
+        $id['id'] 		= $this->input->post('round_id');
+        $data['close'] 	= time();
+
+		$this->table_round->update($id,$data);
+		$this->session->set_flashdata('success',"Berhasil! Ronde Permainan Telah Ditutup.");
+		redirect("game");
+    }
 
 }
 
